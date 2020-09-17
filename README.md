@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on Rails backend for a micro reddit.
+You can create Users, who can make posts and comments on posts. 
+All done from the Rails console
 
-Things you may want to cover:
+Open rails console
+```
+$ rails console
+```
 
-* Ruby version
+Create a new user 
+```
+> new_user = User.new(username: "name")
+> new_user.save
+```
 
-* System dependencies
+Create a post
 
-* Configuration
+```
+> new_post = new_user.posts.new(content: "Example post content")
+> new_post.save
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Create a comment
+```
+> new_comment = Comment.new(content: "This is the content", user_id: new_user.id, post_id: new_post.id)
+> new_comment.save
+```
